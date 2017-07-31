@@ -1,6 +1,11 @@
 language: c
 sudo: false
 before_install:
+  - mkdir opt
+  - git clone https://github.com/raspberrypi/tools ./
+  - mv ./tools/arm-bcm2708 ./opt/
+  - export PATH=$PATH:./opt/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin
+before_script:
 
 
 
