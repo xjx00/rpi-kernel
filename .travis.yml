@@ -1,5 +1,9 @@
 language: c
 sudo: required
+cache:
+  ccache: true
+  directories:
+    - $HOME/downloads
 before_install:
   - mkdir opt
   - git clone https://github.com/raspberrypi/tools ./
@@ -20,3 +24,10 @@ after_script:
   - mkdir ../../../../upload/file
   - tar czvf ../../../../upload/file/dts.tgz arch/arm/boot/dts
   - tar czvf ../../../../upload/file/modules.tgz ../../../../opt/install/rpi-4.9/modules
+  - cd ../../../../upload
+  - git init
+  - git config user.name "xjx00"
+  - git config user.email "xjxyklwx@126.com"
+  - git add .
+  - git commit -m "Update"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:upload
