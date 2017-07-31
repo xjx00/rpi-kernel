@@ -16,5 +16,7 @@ script:
   - sudo make -j3 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules_install INSTALL_MOD_PATH=../../../../opt/install/rpi-4.9
   - sudo scripts/mkknlimg arch/arm/boot/zImage ../../../../opt/install/rpi-4.9/kernel7.img
 after_script:
-  - tar czvf ../../../../opt/dts.tgz arch/arm/boot/dts
-  - tar czvf ../../../../opt/modules.tgz /opt/install/rpi-4.9/modules
+  - mkdir ../../../../upload
+  - mkdir ../../../../upload/file
+  - tar czvf ../../../../upload/file/dts.tgz arch/arm/boot/dts
+  - tar czvf ../../../../upload/file/modules.tgz ../../../../opt/install/rpi-4.9/modules
