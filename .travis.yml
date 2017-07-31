@@ -10,5 +10,11 @@ before_script:
   - cd ./opt/source/rpi-4.9/smp
   - make mrproper
 script:
+  - make -j3 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig
+  - make -j3 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs
+  - mkdir -p ./opt/install/rpi-4.9
+  - sudo make -j3 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules_install INSTALL_MOD_PATH=./opt/install/rpi-4.9
+  - sudo scripts/mkknlimg arch/arm/boot/zImage ./opt/install/rpi-4.9/kernel7.img
+after_script:
 
 
