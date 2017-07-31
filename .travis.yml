@@ -1,14 +1,9 @@
 language: c
 sudo: required
-cache:
-  ccache: true
-  directories:
-    - $HOME/opt
 before_install:
   - mkdir opt
   - git clone https://github.com/raspberrypi/tools
-  - mv ./tools/arm-bcm2708 ./opt/
-  - export PATH=${HOME}/opt/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin:${PATH}
+  - export PATH=${PWD}/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/:${PATH}
 before_script:
   - git clone -b rpi-4.9.y --depth=1 https://github.com/raspberrypi/linux opt/source/rpi-4.9/smp
   - cd ./opt/source/rpi-4.9/smp
