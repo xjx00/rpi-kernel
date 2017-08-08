@@ -11,7 +11,7 @@ if [ -z "$GH_TOKEN" ]; then
   echo "ABORTING: env GH_TOKEN is missing"
   exit 1
 fi
-$GITHUB_TOKEN=$GH_TOKEN
+export $GITHUB_TOKEN="$GH_TOKEN"
 # verbose logging
 set -x
 
