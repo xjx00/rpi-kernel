@@ -17,5 +17,4 @@ RUN git clone --single-branch --branch rpi-4.9.y --depth 1 https://www.github.co
 
 COPY defconfigs/ /defconfigs/
 COPY build-kernel.sh /
-RUN chmod +x /build-kernel.sh
 CMD ["/build-kernel.sh"]
