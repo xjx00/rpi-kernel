@@ -24,11 +24,11 @@ fi
 # Accept custom defconfig
 DEFCONFIG=${DEFCONFIG:="bcmrpi3_defconfig"}
 if [ "x$DEFCONFIG" != "xbcmrpi3_defconfig" ]; then
-  cp /defconfigs/$DEFCONFIG ./arch/arm64/configs/
+  cp /defconfigs/$DEFCONFIG ./arch/arm/configs/
 fi
 
 # Compile Linux kernel
-MAKE="make -j 8 ARCH=arm64 CROSS_COMPILE=$CROSS_COMPILE"
+MAKE="make -j 8 ARCH=arm CROSS_COMPILE=$CROSS_COMPILE"
 
 # Add kernel branding for HypriotOS
 sed -i 's/^EXTRAVERSION =.*/EXTRAVERSION = -xjx00/g' Makefile
@@ -62,9 +62,9 @@ depmod -a -b $INSTALLDIR $KR
 
 # Install kernel, dtb and overlays
 mkdir -p $INSTALLDIR/boot/overlays
-cp arch/arm64/boot/Image $INSTALLDIR/boot/kernel8.img
-cp arch/arm64/boot/dts/broadcom/bcm2710-rpi-3-b.dtb $INSTALLDIR/boot/
-cp arch/arm64/boot/dts/overlays/*.dtbo $INSTALLDIR/boot/overlays/
+cp arch/arm/boot/Image $INSTALLDIR/boot/kernel.img
+cp arch/arm/boot/dts/broadcom/*.dtb $INSTALLDIR/boot/
+cp arch/arm/boot/dts/overlays/*.dtbo $INSTALLDIR/boot/overlays/
 
 # Create tar file, all kernel files
 TARFILE1=$KR.tar.gz
