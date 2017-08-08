@@ -4,6 +4,7 @@ services:
 language: bash
 script:
   - chmod +x travis-build.sh
+  - chmod +x build-kernel.sh
   - ./travis-build.sh
 after_success:
   - ls -al builds/$BUILD_NR/*
