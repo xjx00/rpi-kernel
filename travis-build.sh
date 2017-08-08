@@ -20,6 +20,7 @@ echo "BUILD_NR=$BUILD_NR"
 
 # run build
 export DEFCONFIG=rpi_defconfig
+chmod +x build-kernel.sh
 docker-compose build
 docker-compose run builder
 
