@@ -7,11 +7,11 @@ if [ -z "$TRAVIS_BRANCH" ]; then
   exit 1
 fi
 # Check essential envs
-if [ -z "$GITHUB_TOKEN" ]; then
-  echo "ABORTING: env GITHUB_TOKEN is missing"
+if [ -z "$GH_TOKEN" ]; then
+  echo "ABORTING: env GH_TOKEN is missing"
   exit 1
 fi
-
+$GITHUB_TOKEN=$GH_TOKEN
 # verbose logging
 set -x
 
