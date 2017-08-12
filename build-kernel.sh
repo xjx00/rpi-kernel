@@ -63,7 +63,7 @@ depmod -a -b $INSTALLDIR $KR
 # Install kernel, dtb and overlays
 mkdir -p $INSTALLDIR/boot/overlays
 cp arch/arm/boot/Image $INSTALLDIR/boot/kernel.img
-cp arch/arm/boot/dts/broadcom/*.dtb $INSTALLDIR/boot/
+#cp arch/arm/boot/dts/broadcom/*.dtb $INSTALLDIR/boot/
 cp arch/arm/boot/dts/overlays/*.dtbo $INSTALLDIR/boot/overlays/
 
 # Create tar file, all kernel files
