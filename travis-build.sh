@@ -19,7 +19,7 @@ export BUILD_NR="$(date '+%Y%m%d-%H%M%S')"
 echo "BUILD_NR=$BUILD_NR"
 
 # run build
-export DEFCONFIG=bcm2835_defconfig
+export DEFCONFIG=rpi_defconfig
 docker-compose build
 docker-compose run builder
 
